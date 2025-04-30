@@ -25,15 +25,13 @@ namespace Core {
 		return game_window->isOpen();
 	}
 
-	void GameWindowManager::render()
+	void GameWindowManager::clearGameWindow()
 	{
-		//This will handle all the drawing operations
-		//Clear window with orange color(R:200, G:50, B:50, A:255)
-		game_window->clear(Color(200, 50, 50, 255));
+		game_window->clear();
+	}
 
-		//draw shapes, sprites
-
-		//Display the changes
+	void GameWindowManager::displayGameWindow()
+	{
 		game_window->display();
 	}
 
