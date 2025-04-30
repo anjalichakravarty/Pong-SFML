@@ -26,4 +26,14 @@ namespace Gameplay {
 		pong_ball_sprite.setScale(scale_x, scale_y); //Set size
 		pong_ball_sprite.setPosition(position_x, position_y); //Set position
 	}
+
+	void Ball::move()
+	{
+		pong_ball_sprite.move(velocity);
+	}
+
+	void Ball::update()
+	{
+		move();
+	}
 }

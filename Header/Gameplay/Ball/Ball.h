@@ -13,6 +13,9 @@ namespace Gameplay {
 
 		string texture_path = "Assets/Textures/Ball.png";
 
+		float ball_speed = 0.5f;
+		Vector2f velocity = Vector2f(ball_speed, ball_speed);
+
 		const float scale_x = 0.06f;
 		const float scale_y = 0.06f;
 
@@ -21,6 +24,8 @@ namespace Gameplay {
 
 		void loadTexture();
 		void initializeVariables();
+
+		void move();
 
 	public:
 		Ball();

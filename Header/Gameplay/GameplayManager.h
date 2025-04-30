@@ -13,12 +13,14 @@ namespace Gameplay {
 
 		void initialize();
 
-	public:
-		Ball* ball;
-		Paddle* player1;
-		Paddle* player2;
+		EventManager* eventManager;
 
-		GameplayManager();
+	public:
+		Ball* ball = new Ball();
+		Paddle* player1 = new Paddle(player1_position_x, player1_position_y);
+		Paddle* player2 = new Paddle(player2_position_x, player2_position_y);
+
+		GameplayManager(EventManager* manager);
 		void update();
 		void render(RenderWindow* game_window);
 	};

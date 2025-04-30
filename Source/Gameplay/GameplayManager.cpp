@@ -1,9 +1,11 @@
 #include "../../Header/Gameplay/GameplayManager.h"
+#include "../../Header/Event/EventManager.h"
+using namespace Event;
 
 namespace Gameplay {
-	GameplayManager::GameplayManager()
+	GameplayManager::GameplayManager(EventManager* manager)
 	{
-		initialize();
+		eventManager = manager;
 	}
 
 	void GameplayManager::initialize()
@@ -13,10 +15,19 @@ namespace Gameplay {
 		player2 = new Paddle(player2_position_x, player2_position_y);
 	}
 
+	void GameplayManager::update()
+	{
+		player1->update(eventManager->isKeyPressed(Keyboard::W), eventManager->isKeyPressed(Keyboard::S));
+		player2->update(eventManager->isKeyPressed(Keyboard::Up), eventManager->isKeyPressed(Keyboard::Down));
+		ball->update();	
+	}
+
 	void GameplayManager::render(RenderWindow* game_window)
 	{
 		ball->render(game_window);
 		player1->render(game_window);
 		player2->render(game_window);
 	}
+
+	
 }
