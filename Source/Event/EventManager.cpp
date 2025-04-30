@@ -1,6 +1,8 @@
 #include "../../Header/Event/EventManager.h"
+#include <iostream>
 
 using namespace sf;
+using namespace std;
 namespace Event {
 	
 	void EventManager::pollEvents(RenderWindow* game_window)
@@ -19,6 +21,15 @@ namespace Event {
 			{
 				game_window->close();
 			}
+
+			//Handle left mouse button click
+			if (isLeftMouseButtonClicked())
+			{
+				Vector2i position = Mouse::getPosition(*game_window);
+
+				//Log the mouse position
+				cout << "Left mouse click at: " << position.x << "," << position.y << endl;
+			}
 		}
 	}
 
@@ -26,5 +37,11 @@ namespace Event {
 	{
 		//Detect if a specific key is pressed
 		return Keyboard::isKeyPressed(key);
+	}
+
+	bool EventManager::isLeftMouseButtonClicked()
+	{
+		//Detect if the left mouse button is clicked
+		return(Mouse::isButtonPressed(Mouse::Left));
 	}
 }
