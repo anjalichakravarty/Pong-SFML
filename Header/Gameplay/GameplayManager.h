@@ -1,6 +1,9 @@
 #pragma once
-#include "Paddle.h"
+#include "Paddle/Paddle.h"
 #include "Ball/Ball.h"
+#include "Boundary/Boundary.h"
+#include "../../Header/Event/EventManager.h"
+using namespace Event;
 
 namespace Gameplay {
 	class GameplayManager {
@@ -13,7 +16,8 @@ namespace Gameplay {
 
 		void initialize();
 
-		EventManager* eventManager;
+		EventManager* event_manager;
+		Boundary* boundary = new Boundary();
 
 	public:
 		Ball* ball = new Ball();

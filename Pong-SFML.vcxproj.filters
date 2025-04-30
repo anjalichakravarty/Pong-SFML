@@ -57,10 +57,13 @@
     <ClCompile Include="Source\Gameplay\Ball\Ball.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Gameplay\Paddle.cpp">
+    <ClCompile Include="Source\Gameplay\Paddle\Paddle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Gameplay\GameplayManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Gameplay\Boundary\Boundary.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -77,10 +80,13 @@
     <ClInclude Include="Header\Gameplay\Ball\Ball.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Header\Gameplay\Paddle.h">
+    <ClInclude Include="Header\Gameplay\Paddle\Paddle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Header\Gameplay\GameplayManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Gameplay\Boundary\Boundary.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

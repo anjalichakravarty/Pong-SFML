@@ -1,6 +1,6 @@
 #pragma once
 #include "../../SFML/include/SFML/Graphics.hpp"
-#include "../../Header/Gameplay/Paddle.h"
+#include "../../Header/Gameplay/Paddle/Paddle.h"
 
 using namespace sf;
 using namespace std;
