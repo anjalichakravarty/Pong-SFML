@@ -5,6 +5,7 @@ namespace Core {
 	{
 		gameWindowManager = new GameWindowManager();
 		eventManager = new EventManager();
+		gameplayManager = new GameplayManager();
 
 		gameWindowManager->initialize();
 	}
@@ -27,6 +28,10 @@ namespace Core {
 	void GameLoop::render()
 	{
 		gameWindowManager->clearGameWindow();
+		
+		//render the paddles and ball
+		gameplayManager->render(gameWindowManager->getGameWindow());
+
 		gameWindowManager->displayGameWindow();
 	}
 }
