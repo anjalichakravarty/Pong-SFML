@@ -1,4 +1,4 @@
-#include "../../Header/Gameplay/Paddle.h"
+#include "../../Header/Gameplay/Paddle/Paddle.h"
 
 using namespace sf;
 
@@ -17,13 +17,13 @@ namespace Gameplay {
 	void Paddle::movePaddle(bool move_up_key_pressed, bool move_down_key_pressed)
 	{
 		//move up
-		if (move_up_key_pressed)
+		if (move_up_key_pressed && paddle_sprite.getPosition().y > topBoundary)
 		{
 			paddle_sprite.move(0, -paddleSpeed);
 		}
 
 		//move down
-		if (move_down_key_pressed)
+		if (move_down_key_pressed && paddle_sprite.getPosition().y + paddle_sprite.getSize().y < bottomBoundary)
 		{
 			paddle_sprite.move(0, paddleSpeed);
 		}
@@ -32,5 +32,10 @@ namespace Gameplay {
 	void Paddle::update(bool move_up_key_pressed, bool move_down_key_pressed)
 	{
 		movePaddle(move_up_key_pressed, move_down_key_pressed);
+	}
+
+	RectangleShape Paddle::getPaddleSprite()
+	{
+		return paddle_sprite;
 	}
 }
