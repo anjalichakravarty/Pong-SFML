@@ -20,7 +20,7 @@ namespace Gameplay {
 	{
 		player1->update(event_manager->isKeyPressed(Keyboard::W), event_manager->isKeyPressed(Keyboard::S));
 		player2->update(event_manager->isKeyPressed(Keyboard::Up), event_manager->isKeyPressed(Keyboard::Down));
-		ball->update();	
+		ball->update(player1, player2);
 	}
 
 	void GameplayManager::render(RenderWindow* game_window)
