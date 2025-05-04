@@ -1,5 +1,7 @@
 #include "../../Header/Gameplay/Ball/Ball.h"
 #include <iostream>
+#include "../../../Header/Utility/TimeService.h"
+using namespace Utility;
 
 using namespace sf;
 
@@ -28,16 +30,36 @@ namespace Gameplay {
 		pong_ball_sprite.setTexture(pong_ball_texture); //Link texture to sprite
 		pong_ball_sprite.setScale(scale_x, scale_y); //Set size
 		pong_ball_sprite.setPosition(position_x, position_y); //Set position
+
+		current_state = BallState::Idle;
 	}
 
-	void Ball::move()
+	void Ball::move(TimeService* time_service)
 	{
-		pong_ball_sprite.move(velocity);
+		updateDelayTime(time_service->getDeltaTime());
+
+		pong_ball_sprite.move(velocity * time_service->getDeltaTime() * speed_multiplier);
 	}
 
-	void Ball::update(Paddle* player1, Paddle* player2)
+	void Ball::updateDelayTime(float delta_time)
 	{
-		move();
+		if (current_state == BallState::Idle)
+		{
+			elapsed_delay_time += delta_time;
+			if (elapsed_delay_time >= delta_time)
+			{
+				current_state = BallState::Moving;
+			}
+			else
+			{
+				return;
+			}
+		}
+	}
+
+	void Ball::update(Paddle* player1, Paddle* player2, TimeService* time_service)
+	{
+		move(time_service);
 		onCollision(player1, player2);
 	}
 

@@ -1,8 +1,10 @@
 #pragma once
 
 #include "../../SFML/include/SFML/Graphics.hpp"
+#include "../../Header/Utility/TimeService.h"
 
 using namespace sf;
+using namespace Utility;
 
 namespace Gameplay {
 	class Paddle {
@@ -13,19 +15,21 @@ namespace Gameplay {
 		const float paddle_height = 140.0f;
 
 		const float paddleSpeed = 0.5f;
+		const float speedMultiplier = 100.0f;
+
 		const float topBoundary = 20.0f;
 		const float bottomBoundary = 700.0f; 
 
 		void createPaddle(float position_x, float position_y);
-		void movePaddle(bool move_up_key_pressed, bool move_down_key_pressed);
+		
 
 	public:
 		Paddle(float position_x, float position_y);
 
 		RectangleShape getPaddleSprite();
 		void reset(float position_x, float position_y);
-
-		void update(bool move_up_key_pressed, bool move_down_key_pressed);
+		void movePaddle(bool move_up_key_pressed, bool move_down_key_pressed, TimeService* time_service);
+		void update(bool move_up_key_pressed, bool move_down_key_pressed, TimeService* time_service);
 		void render(RenderWindow* game_window);
 	};
 }
