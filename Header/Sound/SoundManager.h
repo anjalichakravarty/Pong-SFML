@@ -18,6 +18,7 @@ namespace Sound {
 		static sf::Sound soundEffect;
 		static SoundBuffer ballBounce;
 
+		static const string bgmPath;
 		static float backgroundMusicVolume;
 		static const string ballBouncePath;
 
