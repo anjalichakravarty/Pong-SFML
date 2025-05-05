@@ -31,6 +31,10 @@ namespace Gameplay {
 		Paddle* player2 = new Paddle(player2_position_x, player2_position_y);
 
 		GameplayManager(EventManager* manager);
+
+		void UpdateScore();
+		void resetPlayers();
+
 		void update();
 		void render(RenderWindow* game_window);
 	};

@@ -63,6 +63,26 @@ namespace Gameplay {
 		onCollision(player1, player2);
 	}
 
+	bool Ball::isLeftCollisionOccurred()
+	{
+		return had_left_collision;
+	}
+
+	void Ball::updateLeftCollisionState(bool value)
+	{
+		had_left_collision = value;
+	}
+
+	bool Ball::isRightCollisionOccurred()
+	{
+		return had_right_collision;
+	}
+
+	void Ball::updateRightCollisionState(bool value)
+	{
+		had_right_collision = value;
+	}
+
 	void Ball::handlePaddleCollision(Paddle* player1, Paddle* player2)
 	{
 		//1. Get our sprites
@@ -103,10 +123,12 @@ namespace Gameplay {
 
 		if (ball_bounds.left <= left_boundary)
 		{
+			updateLeftCollisionState(true);
 			reset();
 		}
 		else if (ball_bounds.left + ball_bounds.width >= right_boundary)
 		{
+			updateRightCollisionState(true);
 			reset();
 		}
 	}
