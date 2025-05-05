@@ -4,6 +4,7 @@
 using namespace Utility;
 
 using namespace sf;
+using namespace Sound;
 
 namespace Gameplay {
 	Ball::Ball()
@@ -97,11 +98,13 @@ namespace Gameplay {
 		//3. Handle collision
 		if (ball_bounds.intersects(player1_bounds) && velocity.x < 0)
 		{
-			velocity.x = -velocity.x; //Bounce
+			SoundManager::PlaySoundEffect(SoundType::BALL_BOUNCE);
+			velocity.x = -velocity.x; //Bounce	
 		}
 
 		if (ball_bounds.intersects(player2_bounds) && velocity.x > 0)
 		{
+			SoundManager::PlaySoundEffect(SoundType::BALL_BOUNCE);
 			velocity.x = -velocity.x; //Reverse horizontal direction
 		}
 	}
