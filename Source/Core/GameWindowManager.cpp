@@ -13,9 +13,7 @@ namespace Core {
 	{
 		//Creating the window with specified dimensions and title
 		game_window->create(
-			VideoMode::getDesktopMode(),
-			game_title,
-			Style::Fullscreen
+			VideoMode(game_window_width, game_window_height), game_title
 		);
 	}
 

@@ -7,13 +7,23 @@ using namespace sf;
 namespace Gameplay {
 	Paddle::Paddle(float position_x, float position_y)
 	{
+		createPaddle(position_x, position_y);
+	}
+
+	void Paddle::createPaddle(float position_x, float position_y)
+	{
 		paddle_sprite.setSize(Vector2f(paddle_width, paddle_height));
 		paddle_sprite.setPosition(position_x, position_y);
 	}
 
-	void Paddle::render(RenderWindow* game_window)
+	RectangleShape Paddle::getPaddleSprite()
 	{
-		game_window->draw(paddle_sprite);
+		return paddle_sprite;
+	}
+
+	void Paddle::reset(float position_x, float position_y)
+	{
+		paddle_sprite.setPosition(position_x, position_y);
 	}
 
 	void Paddle::movePaddle(bool move_up_key_pressed, bool move_down_key_pressed, TimeService* time_service)
@@ -36,8 +46,10 @@ namespace Gameplay {
 		movePaddle(move_up_key_pressed, move_down_key_pressed, time_service);
 	}
 
-	RectangleShape Paddle::getPaddleSprite()
+	
+	
+	void Paddle::render(RenderWindow* game_window)
 	{
-		return paddle_sprite;
+		game_window->draw(paddle_sprite);
 	}
 }
